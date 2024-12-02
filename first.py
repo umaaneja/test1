@@ -1,47 +1,48 @@
 I want to create a **multi-platform component diagram** for my system using Mermaid.js. Below are the details:
 
 1. **System Overview**:
-   - **System Name**: [Name of the overall system/project]
+   - **System Name**: Multi-Platform E-Learning System
    - **Platforms**:
-     - Platform 1: [E.g., Web, Mobile, Desktop, Cloud, IoT, etc.]
-     - Platform 2: ...
+     - Web: For students and instructors to access via browsers.
+     - Mobile: For students to use on smartphones.
+     - Cloud: For data storage and API management.
    - **Technologies Used**:
-     - Platform 1: [E.g., React, Angular, Python, etc.]
-     - Platform 2: ...
+     - Web: ReactJS, Node.js
+     - Mobile: Flutter
+     - Cloud: AWS, DynamoDB, Lambda functions
 
-2. **Main Components** (Categorized by Platforms):
-   - Platform 1:
-     - Component 1: [Name and description]
-     - Component 2: ...
-   - Platform 2:
-     - Component 1: [Name and description]
-     - Component 2: ...
-   - Shared/Universal Components (if any):
-     - Component 1: [Name and description]
+2. **Main Components**:
+   - Web Platform:
+     - User Dashboard: Displays course progress
+     - Content Management: Allows instructors to upload material
+   - Mobile Platform:
+     - Mobile App: Provides course material and notifications
+   - Cloud Platform:
+     - API Gateway: Handles requests from web and mobile
+     - Storage Service: Stores course material
+     - Authentication Service: Manages user authentication
+   - Shared/Universal Components:
+     - Notification Service: Sends reminders across web and mobile
 
 3. **Relationships Across Components**:
-   - Within a Platform:
-     - [Component A] interacts with [Component B] via [Type of interaction]
+   - Within Web Platform:
+     - User Dashboard interacts with Content Management to fetch updates.
    - Cross-Platform:
-     - [Component X] (from Platform 1) interacts with [Component Y] (from Platform 2) via [Type of interaction]
+     - Mobile App interacts with API Gateway for course material.
+     - API Gateway connects to Storage Service to retrieve data.
 
-4. **Groups or Subsystems** (Optional):
-   - Group 1: [E.g., "Frontend" with components like [Component A, Component B]]
-   - Group 2: ...
+4. **Groups or Subsystems**:
+   - Frontend: User Dashboard, Mobile App
+   - Backend: API Gateway, Storage Service, Authentication Service
 
-5. **Technology-Specific Details** (Optional):
-   - Highlight specific libraries, frameworks, or tools used by components.
-   - Example: "This service uses Docker and Kubernetes for orchestration."
+5. **Technology-Specific Details**:
+   - The mobile app uses Flutter for cross-platform compatibility.
+   - The API Gateway is deployed using AWS API Gateway.
 
-6. **Style Preferences** (Optional):
-   - Use specific colors for each platform or technology.
-   - Group shared components with a distinct style.
-   - Add notes or annotations for unique aspects of components.
+6. **Style Preferences**:
+   - Use blue for web components, green for mobile, and orange for cloud.
+   - Add a note for the Authentication Service: "Uses OAuth2.0"
 
-7. **Other Requirements** (Optional):
-   - Include a legend for platforms and technologies.
-   - Exclude components irrelevant to the diagram's scope.
-   - Add context, such as data flow direction or system constraints.
-
-### Example Output
-Please generate a Mermaid.js code for the component diagram based on the above information.
+7. **Other Requirements**:
+   - Include data flow arrows to show request/response paths.
+   - Add a legend to explain color coding for platforms.
