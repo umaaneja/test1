@@ -1,48 +1,41 @@
-I want to create a **multi-platform component diagram** for my system using Mermaid.js. Below are the details:
+graph TD
+    %% Style Definitions
+    classDef web fill:#cce5ff,stroke:#003399,stroke-width:2px; %% Blue for Web
+    classDef mobile fill:#d4edda,stroke:#006600,stroke-width:2px; %% Green for Mobile
+    classDef cloud fill:#ffeeba,stroke:#996600,stroke-width:2px; %% Orange for Cloud
+    classDef shared fill:#f8d7da,stroke:#990000,stroke-width:2px; %% Red for Shared/Universal Components
 
-1. **System Overview**:
-   - **System Name**: Multi-Platform E-Learning System
-   - **Platforms**:
-     - Web: For students and instructors to access via browsers.
-     - Mobile: For students to use on smartphones.
-     - Cloud: For data storage and API management.
-   - **Technologies Used**:
-     - Web: ReactJS, Node.js
-     - Mobile: Flutter
-     - Cloud: AWS, DynamoDB, Lambda functions
+    %% Web Platform Components
+    WD[User Dashboard]:::web
+    CM[Content Management]:::web
+    
+    %% Mobile Platform Components
+    MA[Mobile App]:::mobile
 
-2. **Main Components**:
-   - Web Platform:
-     - User Dashboard: Displays course progress
-     - Content Management: Allows instructors to upload material
-   - Mobile Platform:
-     - Mobile App: Provides course material and notifications
-   - Cloud Platform:
-     - API Gateway: Handles requests from web and mobile
-     - Storage Service: Stores course material
-     - Authentication Service: Manages user authentication
-   - Shared/Universal Components:
-     - Notification Service: Sends reminders across web and mobile
+    %% Cloud Platform Components
+    API[a Gateway]:::cloud
+    SS[Storage Service]:::cloud
+    AS[Authentication Service]:::cloud
 
-3. **Relationships Across Components**:
-   - Within Web Platform:
-     - User Dashboard interacts with Content Management to fetch updates.
-   - Cross-Platform:
-     - Mobile App interacts with API Gateway for course material.
-     - API Gateway connects to Storage Service to retrieve data.
+    %% Shared/Universal Components
+    NS[Notification Service]:::shared
 
-4. **Groups or Subsystems**:
-   - Frontend: User Dashboard, Mobile App
-   - Backend: API Gateway, Storage Service, Authentication Service
+    %% Relationships
+    WD --> CM
+    MA --> API
+    API --> SS
+    API --> AS
+    NS --> WD
+    NS --> MA
 
-5. **Technology-Specific Details**:
-   - The mobile app uses Flutter for cross-platform compatibility.
-   - The API Gateway is deployed using AWS API Gateway.
+    %% Grouping
+    subgraph Frontend [Frontend]
+        WD
+        MA
+    end
 
-6. **Style Preferences**:
-   - Use blue for web components, green for mobile, and orange for cloud.
-   - Add a note for the Authentication Service: "Uses OAuth2.0"
-
-7. **Other Requirements**:
-   - Include data flow arrows to show request/response paths.
-   - Add a legend to explain color coding for platforms.
+    subgraph Backend [Backend]
+        API
+        SS
+        AS
+    end
